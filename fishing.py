@@ -22,37 +22,13 @@ time.sleep(0.5)
 driver.get('https://farmrpg.com/#!/fishing.php?id=11')
 
 while True:
-    hooked = False
-    while hooked == False:
-        try:
-            fish = driver.find_element(By.CSS_SELECTOR, "img[src='/img/items/fish.png'][style*='display: inline']")
-            if bool(fish) == True:
-                time.sleep(round(random.uniform(0.1, 0.2), 3))
-                fish.click()
-                try:
-                    hook = driver.find_element(By.XPATH, "//div[@class='fishcaught finalcatch1']")
-                    if bool(hook) == True:
-                        hooked = True
-                        break
-                except:
-                    continue
-        except:
-            continue
-    while hooked == True:
-        try:
-            hook = driver.find_element(By.XPATH, "//div[@class='fishcaught finalcatch1']")
-            if bool(hook) == True:
-                time.sleep(round(random.uniform(0.1, 0.2), 3))
-                hook.click()
-                try:
-                    hook = driver.find_element(By.XPATH, "//div[@class='fishcaught finalcatch1']")
-                    if bool(hook) == False:
-                        hooked = False
-                        break
-                except:
-                    continue
-            elif bool(hook) == False:
-                hooked = False
-                break
-        except:
-            continue
+    try:
+        fish = driver.find_element(By.CSS_SELECTOR, "img[src='/img/items/fish.png'][style*='display: inline']")
+        fish.click()
+        time.sleep(round(random.uniform(0.05, 0.12), 3))
+        time.sleep(0.5)
+        hook = driver.find_element(By.CSS_SELECTOR, "div[class*='fishcaught finalcatch']")
+        hook.click()
+        time.sleep(round(random.uniform(0.05, 0.12), 3))
+    except:
+        continue
