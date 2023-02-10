@@ -55,11 +55,7 @@ while True:
         time.sleep(2)
         sellUnlocked = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "//a[contains(text(), 'Sell Unlocked')]"))).click()
         time.sleep(1)
-
-
-        sacrifice = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "//button[@class='button sacrificebtn'][contains(text(), 'GO')]"))).click()
-        time.sleep(1)
-        buy = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "//div[@class='actions-modal-button'][contains(text(), 'Yes')]"))).click()
+        yes = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "//div[@class='actions-modal-button'][contains(text(), 'Yes')]"))).click()
         time.sleep(1)
         ok = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "//span[@class='modal-button modal-button-bold'][contains(text(), 'OK')]"))).click()
         time.sleep(1)
