@@ -22,7 +22,7 @@ plant = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, "/
 time.sleep(1)
 
 while True:
-    for i in range(0, 20):
+    for i in range(0, 30):
         time.sleep(305)
         harvest = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, "//*[contains(text(), 'Harvest All')]"))).click()
         time.sleep(2)
@@ -38,11 +38,9 @@ while True:
         time.sleep(2)
         store = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "//div[@class='item-title'][contains(text(), 'Country Store')]"))).click()
         time.sleep(2)
-        watermelon = driver.find_element(By.XPATH, "//strong[contains(text(), 'Watermelon Seeds')]")
-        actions.move_to_element(watermelon).perform()
-        max = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "//button[@class='maxqty cmaxbtn'][@data-id='49'][contains(text(), '+MAX')]"))).click()
+        max = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "//button[@class='maxqty cmaxbtn'][@data-id='12'][contains(text(), '+MAX')]"))).click()
         time.sleep(1)
-        buy = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "//span[@class='price49']"))).click()
+        buy = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "//span[@class='price12']"))).click()
         time.sleep(1)
         buy = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "//div[@class='actions-modal-button'][contains(text(), 'Yes')]"))).click()
         time.sleep(1)
@@ -53,14 +51,12 @@ while True:
         time.sleep(2)
         town = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "//div[@class='item-title'][contains(text(), 'Go into Town')]"))).click()
         time.sleep(2)
-        well = driver.find_element(By.XPATH, "//div[@class='item-title'][contains(text(), 'Wishing Well')]")
-        actions.move_to_element(well).perform()
+        market = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "//div[@class='item-title'][contains(text(), 'Farmer')]"))).click()
+        time.sleep(2)
+        sellUnlocked = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "//a[contains(text(), 'Sell Unlocked')]"))).click()
         time.sleep(1)
-        temple = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "//div[@class='item-title'][contains(text(), 'Temple of Reward')]"))).click()
-        time.sleep(2)
 
-        potato = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "//span[@style='font-size:11px'][contains(text(), 'Sacrifice: Potato')]"))).click()
-        time.sleep(2)
+
         sacrifice = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "//button[@class='button sacrificebtn'][contains(text(), 'GO')]"))).click()
         time.sleep(1)
         buy = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "//div[@class='actions-modal-button'][contains(text(), 'Yes')]"))).click()
