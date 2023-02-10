@@ -2,9 +2,11 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.action_chains import ActionChains
 import time
   
 driver = webdriver.Chrome()
+actions = ActionChains(driver)
 driver.get("https://farmrpg.com/index.php#!/login.php")
 driver.maximize_window()
 
@@ -34,8 +36,13 @@ time.sleep(3)
 ok = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "//span[@class='modal-button'][contains(text(), 'OK')]"))).click()
 time.sleep(1)
 
-back = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "//span[contains(text(), 'Back')]"))).click()
+driver.get("https://farmrpg.com/#!/temple.php")
 time.sleep(3)
+town = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "//div[@class='item-title'][contains(text(), 'Go into Town')]"))).click()
+time.sleep(3)
+temple = driver.find_element(By.XPATH, "//div[@class='item-title'][contains(text(), 'Temple of Reward')]")
+actions.move_to_element(temple).perform()
+time.sleep(1)
 temple = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "//div[@class='item-title'][contains(text(), 'Temple of Reward')]"))).click()
 time.sleep(3)
 
