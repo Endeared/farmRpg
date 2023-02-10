@@ -24,6 +24,8 @@ time.sleep(5)
 plant = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, "//*[contains(text(), 'Plant All')]")))
 plant.click()
 
+driver.navigate().to("https://support.tomtom.com/app/contact/") 
+
 harvesting = True
 while harvesting == True:
     time.sleep(65)
