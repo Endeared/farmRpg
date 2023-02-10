@@ -24,7 +24,12 @@ time.sleep(5)
 plant = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, "//*[contains(text(), 'Plant All')]")))
 plant.click()
 
-driver.navigate().to("https://support.tomtom.com/app/contact/") 
+
+driver.navigate().to("https://farmrpg.com/#!/store.php")
+time.sleep(3)
+max = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "//button[@class='maxqty cmaxbtn' and starts-with(@data-max, '972')][contains(., '+MAX')]")))
+max.click()
+
 
 harvesting = True
 while harvesting == True:
