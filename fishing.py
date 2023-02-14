@@ -36,6 +36,10 @@ while True:
         except:
             continue
         try:
-            outOfWorms = driver.find_element(By.XPATH, "//strong[text()='0']")'
+            outOfWorms = driver.find_element(By.XPATH, "//strong[text()='0']")
         except:
             break
+    
+    time.sleep(0.5)
+    sellAll = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, "//a[@class='button btngreenalt sellallfishbtnnc']"))).click()
+    time.sleep(1)
