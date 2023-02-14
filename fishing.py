@@ -17,10 +17,14 @@ WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.NAME, "password")
 login = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, 'login_sub'))).click()
 time.sleep(0.5)
 fishing = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, "//div[@class='item-title'][contains(text(), 'Go Fishing')]"))).click()
-time.sleep(0.5)
-# fishing = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, "//div[@class='item-title'][contains(text(), 'Pirate')]"))).click()
-driver.get('https://farmrpg.com/#!/fishing.php?id=11')
 time.sleep(1)
+# fishing = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, "//div[@class='item-title'][contains(text(), 'Pirate')]"))).click()
+cove = driver.find_element(By.XPATH, "//span[contains(text(), 'An island cave full of treasure')]")
+time.sleep(0.1)
+driver.execute_script("arguments[0].scrollIntoView(true);", cove)
+time.sleep(1)
+cove.click()
+time.sleep(2)
 
 while True:
     fishing = True
@@ -64,7 +68,11 @@ while True:
     time.sleep(2)
     fishing = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, "//div[@class='item-title'][contains(text(), 'Go Fishing')]"))).click()
     time.sleep(2)
-    driver.get('https://farmrpg.com/#!/fishing.php?id=11')
+    cove = driver.find_element(By.XPATH, "//span[contains(text(), 'An island cave full of treasure')]")
+    time.sleep(0.1)
+    driver.execute_script("arguments[0].scrollIntoView(true);", cove)
+    time.sleep(1)
+    cove.click()
     time.sleep(2)
 
     
