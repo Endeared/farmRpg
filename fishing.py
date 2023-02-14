@@ -37,9 +37,10 @@ while True:
             continue
         try:
             outOfWorms = driver.find_element(By.XPATH, "//strong[text()='0']")
-        except:
             fishing = False
             break
+        except:
+            continue
     
     time.sleep(2)
     home = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "//div[@class='item-title'][contains(text(), 'Home')]"))).click()
