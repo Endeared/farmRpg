@@ -21,14 +21,21 @@ time.sleep(0.5)
 # fishing = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, "//div[@class='item-title'][contains(text(), 'Pirate')]"))).click()
 driver.get('https://farmrpg.com/#!/fishing.php?id=11')
 
+fishing = True
+
 while True:
-    try:
-        fish = driver.find_element(By.CSS_SELECTOR, "img[src='/img/items/fish.png'][style*='display: inline']")
-        fish.click()
-        time.sleep(round(random.uniform(0.05, 0.12), 3))
-        time.sleep(0.5)
-        hook = driver.find_element(By.CSS_SELECTOR, "div[class*='fishcaught finalcatch']")
-        hook.click()
-        time.sleep(round(random.uniform(0.05, 0.12), 3))
-    except:
-        continue
+    while fishing == True:
+        try:
+            fish = driver.find_element(By.CSS_SELECTOR, "img[src='/img/items/fish.png'][style*='display: inline']")
+            fish.click()
+            time.sleep(round(random.uniform(0.05, 0.12), 3))
+            time.sleep(0.5)
+            hook = driver.find_element(By.CSS_SELECTOR, "div[class*='fishcaught finalcatch']")
+            hook.click()
+            time.sleep(round(random.uniform(0.05, 0.12), 3))
+        except:
+            continue
+        try:
+            outOfWorms = driver.find_element(By.XPATH, "//strong[text()='0']")'
+        except:
+            break
