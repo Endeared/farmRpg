@@ -46,7 +46,9 @@ while True:
         except:
             continue
     
-    time.sleep(2)
+    time.sleep(1)
+    sellAll = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "//a[@class='button btngreenalt sellallfishbtnnc']"))).click()
+    time.sleep(1)
     home = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "//div[@class='item-title'][contains(text(), 'Home')]"))).click()
     time.sleep(2)
     town = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "//div[@class='item-title'][contains(text(), 'Go into Town')]"))).click()
